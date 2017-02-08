@@ -1,0 +1,123 @@
+Assignment 3 Report
+
+Name: Aravind Ram Nathan
+
+1. What I turned in, what it does, and how to run it
+
+a) script.sh - a bash script which is used to automate the process of executing the command to create the features for each of the 
+   ---------
+csv file present in the directory by passing one csv file at a time.
+
+Command used : ./script.sh <python_file> <path_to_train/test_data> <output_filename> 
+-------------- 
+
+<python_file> refers to the python file executed. In our case it is either create_baseline_features.py or create_advanced_features.py
+
+<path_to_train/test_data> refers to the path containing all the csv files which can be the path to the training data or the test data.
+
+<output_file> refers to the output file which contains the output from STDOUT. 
+
+Example : ./script.sh create_advanced_features.py csci544_hw3_data/data/train advanced.txt 
+---------
+
+I have used the hw3_corpus_tool.py code and placed it inside both create_baseline_features.py and create_advanced_features.py.
+I have made a small modifiction at line number 24 of both the python files (which is line number 60 of hw3_corpus_tool.py) by skipping the iteration rather than storing the value as None.
+Since, I have included and made the changes as part of my code, I have not submitted the hw3_corpus_tool.py file separately again.
+
+Other files submitted(mandatory) :
+--------------------------------
+
+b) create_baseline_features.py
+c) create_advanced_features.py
+d) swbdDAMSL.crfsuite.baseline.model
+e) swbdDAMSL.crfsuite.baseline.out
+f) swbdDAMSL.crfsuite.advanced.model
+g) swbdDAMSL.crfsuite.advanced.model
+h) report.txt
+
+2. How I evaluated my baseline and advanced features
+
+I split the whole training data as 75% for training and 25% for validation using the split command.
+
+Command used : split -l <line_number> <training_file> <output_filename>
+--------------
+
+Example : split -l 155239 advanced.txt advanced_
+---------
+
+At the end, 2 files will be generated. One file contains 75% data which is used for training and the other file contains 25% data which is used for validation. The training data was then used in the crfsuite learn command and the validation data was used in the tag command.
+
+Command used : bin/crfsuite learn -m <model_file> <training_file>
+--------------
+
+Example : bin/crfsuite learn -m advanced_model_75_25 advanced_aa
+---------
+
+Command used : bin/crfsuite tag -m <model_file> -qt <validation_file>
+------------
+
+Example : bin/crfsuite tag -m advanced_model_75_25 -qt advanced_ab
+---------
+
+Command line option -qt is used to report the accuracy.
+
+
+3. Description of advanced feature set
+
+Advanced Features considered:
+	
+First 4 features are the same as the given baseline features which are
+
+1) First utterance of the dialogue (refers to f[0]=1)
+2) Whether a speaker has changed in comparison to the previous utterance. (refers to f[1]=0 to
+   indicate the speaker is not the same)
+3) Every token in the utterance (refers to TOKEN_<unigram value>)
+4) Every pos tag in the utterance (refers to POS_<unigram value>)
+
+In addition to the 4 baseline features mentioned above, the following features were also considered:
+
+5) Whether the utterance is a question (refers to f[2]=1 by checking if '?' is present in the list of tokens)
+6) Bigram of TOKENS
+7) Bigram of POS tags
+8) Trigram of TOKENS
+9) Trigram of POS tags
+10) Insert the first token of the next utterance at the end of the utterance
+(refers to first_word_next_line_<first token>)
+	 
+4. How I developed my advanced feature set
+
+I used the suggestions posted by the TAs and other students in Piazza
+and considered unigrams, bigrams, trigrams of both the TOKENS and the POS tags.
+I then checked for utterances which are questions and since it was a conversation between 2 speakers,
+ as expected there were quite a lot of questions and so I decided to add this as a feature. This way the crfsuite can learn this feature and correctly predict the dialog act for the utterance more often than not. Finally, I added one more feature which inserts the first token of the next utterance at the end of the utterance based on my understanding after reading the SWBD DAMSL tutorials/documentation. At the end, I was able to find a slight increase in accuracy by 1.32%
+
+5. Results
+
+Accuracy of baseline features: 72.46%
+Accuracy of advanced features: 73.78%
+
+6. Additional information about the assignment
+
+Test Data(unlabelled data) were preprocessed inside both the python programs by replacing a missing dialog
+ tag as UNKNOWN
+
+Command used to predict the labels for the unlabelled data : 
+------------------------------------------------------------
+
+bin/crfsuite tag -m <model_file> <unlabelled_data> > <output_file>
+
+
+Example :
+---------
+
+bin/crfsuite tag -m swbdDAMSL.crfsuite.advanced.model advanced_test_data.txt > swbdDAMSL.crfsuite.advanced.out
+
+
+The model files submitted will not be in human readable format. To make it human-readable, use the dump command.
+
+Command Used : bin/crfsuite dump <MODEL>
+--------------
+
+Example : bin/crfsuite dump swbdDAMSL.crfsuite.advanced.model
+--------
+

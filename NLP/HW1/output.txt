@@ -1,0 +1,112 @@
+precision( SPAM )= 0.992553778268064
+recall( SPAM )= 0.9793197278911565
+F1( SPAM )= 0.9858923435145871
+precision( HAM )= 0.9509360877985797
+recall( HAM )= 0.982
+F1( HAM )= 0.9662184322728764
+
+=============================
+Precision	Recall	F1
+Ham	0.86	0.99	0.92
+Spam	0.99	0.94	0.96
+Weighted Avg.	0.95
+
+precision( SPAM )= 0.9947991909852644
+recall( SPAM )= 0.9368707482993197
+F1( SPAM )= 0.9649663677130045
+precision( HAM )= 0.8646441073512252
+recall( HAM )= 0.988
+F1( HAM )= 0.9222153080273802
+=============================
+Precision	Recall	F1
+Ham	0.96	0.94	0.95
+Spam	0.98	0.99	0.98
+Weighted Avg.	0.97
+
+check to nboutput.txt
+precision( SPAM )= 0.9768006474237928
+recall( SPAM )= 0.9853061224489796
+F1( SPAM )= 0.9810349498780818
+precision( HAM )= 0.9632152588555858
+recall( HAM )= 0.9426666666666667
+F1( HAM )= 0.9528301886792452
+
+
+1 41287 spam
+2 10218 spam
+3 6156 spam
+
+=======Precision	Recall	F1
+Ham	0.95	0.98	0.96
+Spam	0.99	0.98	0.99
+Weighted Avg.	0.98
+
+/home/prod/libs/vc_2_0_csci544/.vocasn/vc_2_0_csci544_3/train/
+7496.0 9533.0
+P(spam)= 0.4401902636678607 P(ham)= 0.5598097363321393
+V= 108009 V_spam 85793 V_ham 40308
+Output to nbmodel.txt
+/home/prod/libs/vc_2_0_csci544/.vocasn/vc_2_0_csci544_3/dev/
+reading file
+n_spam_doc :: 7496.0
+n_ham_doc :: 9533.0
+vocab_count :: 108008
+over
+check to nboutput.txt
+precision( SPAM )= 0.9898351648351649
+recall( SPAM )= 0.9804081632653061
+F1( SPAM )= 0.9850991114149009
+precision( HAM )= 0.9530944625407166
+recall( HAM )= 0.9753333333333334
+F1( HAM )= 0.9640856672158156
+
+
+=============================================together=================
+Precision	Recall	F1
+Ham	0.97	0.93	0.95
+Spam	0.97	0.99	0.98
+Weighted Avg.	0.97
+
+/home/prod/libs/vc_2_0_csci544/.vocasn/vc_2_0_csci544_3/train/
+7496.0 9533.0
+P(spam)= 0.4401902636678607 P(ham)= 0.5598097363321393
+V= 108009 V_spam 85793 V_ham 40308
+Output to nbmodel.txt
+/home/prod/libs/vc_2_0_csci544/.vocasn/vc_2_0_csci544_3/dev/
+reading file
+n_spam_doc :: 7496.0
+n_ham_doc :: 9533.0
+vocab_count :: 108008
+over
+check to nboutput.txt
+precision( SPAM )= 0.9724156400642743
+recall( SPAM )= 0.9880272108843537
+F1( SPAM )= 0.980159265757862
+precision( HAM )= 0.9694656488549618
+recall( HAM )= 0.9313333333333333
+F1( HAM )= 0.9500170010200611
+
+========================================
+Precision	Recall	F1
+Ham	0.48	0.14	0.22
+Spam	0.73	0.94	0.82
+Weighted Avg.	0.65
+
+/home/prod/libs/vc_2_0_csci544/.vocasn/vc_2_0_csci544_3/train/
+7496.0 9533.0
+P(spam)= 0.4401902636678607 P(ham)= 0.5598097363321393
+V= 107976 V_spam 85761 V_ham 40277
+Output to nbmodel.txt
+/home/prod/libs/vc_2_0_csci544/.vocasn/vc_2_0_csci544_3/dev/
+reading file
+n_spam_doc :: 7496.0
+n_ham_doc :: 9533.0
+vocab_count :: 107976
+over
+check to nboutput.txt
+precision( SPAM )= 0.7281758613400973
+recall( SPAM )= 0.9374149659863945
+F1( SPAM )= 0.8196526290744707
+precision( HAM )= 0.481981981981982
+recall( HAM )= 0.14266666666666666
+F1( HAM )= 0.22016460905349794

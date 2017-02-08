@@ -1,0 +1,53 @@
+Assignment 1 Report
+
+Name: Snehal Adsule
+
+1. Performance on the development data with 100% of the training data
+1a. spam precision: 0.992553778268064
+1b. spam recall:    0.9793197278911565
+1c. spam F1 score:  0.9858923435145871
+1d. ham precision:  0.9509360877985797
+1e. ham recall:     0.982
+1f. ham F1 score:   0.9662184322728764
+
+
+2. Performance on the development data with 10% of the training data
+2a. spam precision:  0.9947991909852644
+2b. spam recall:     0.9368707482993197
+2c. spam F1 score:   0.9649663677130045
+2d. ham precision:   0.8646441073512252
+2e. ham recall:      0.988
+2f. ham F1 score:    0.9222153080273802
+
+3. Description of enhancement(s) you tried (e.g., different approach(es) to smoothing, treating common words differently, dealing with unknown words differently):
+  1) The tokens were checked for special character removal. It gave the following Wt Avg. of F1 =0.65
+          Precision	Recall	F1
+    Ham	    0.48	0.14	0.22
+    Spam	0.73	0.94	0.82
+  2) Removing the Stop words from the stopWords.txt, gave Wt Avg. of F1 =0.97
+        Precision	Recall	F1
+    Ham	    0.96	0.94	0.95
+    Spam	0.98	0.99	0.98
+  3) Eliminating the low frequency words, gave Wt. Avg of F1=0.98
+       Precision	Recall	F1
+   Ham	    0.95	0.98	0.96
+   Spam	    0.99	0.98	0.99
+  4) Combining all three together, gave Wt. Avg. of F1=	0.97
+        Precision	Recall	F1
+   Ham  	1.00	0.89	0.94
+   Spam	    0.96	1.00	0.98
+
+    Combining all techniques in (4) showed precision(ham) reaching 1 and Recall(spam)=1 but the weighted F1 is still lower
+    Similar performance was observed with (2) as the in Question 1.
+    Although the vocabulary was reduced, but because of log operation not much improvement was observed,
+    which may be valuable for non logarithmic probability calculations.
+
+4. Best performance results based on enhancements. Note that these could be the same or worse than the standard implementation.
+4a. spam precision:  0.9898351648351649
+4b. spam recall:     0.9804081632653061
+4c. spam F1 score:   0.9850991114149009
+4d. ham precision:   0.9530944625407166
+4e. ham recall:      0.9753333333333334
+4f. ham F1 score:    0.9640856672158156
+
+    Best performance results is with the option (3.2) wit weighted avg = 0.98

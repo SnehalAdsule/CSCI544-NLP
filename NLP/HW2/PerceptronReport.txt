@@ -1,0 +1,75 @@
+Assignment 2 Report
+
+Name: Snehal Adsule
+
+Part I.
+
+1. Performance of standard perceptron on the development data with 100% of the training data
+1a. spam precision: 0.9840238288654211
+1b. spam recall: 0.988843537414966
+1c. spam F1 score: 0.9864277958740499
+1d. ham precision: 0.9723346828609987
+1e. ham recall: 0.9606666666666667
+1f. ham F1 score: 0.9664654594232058
+
+2. Performance of averaged perceptron on the development data with 100% of the training data
+2a. spam precision: 0.9847453010078998
+2b. spam recall: 0.9836734693877551
+2c. spam F1 score: 0.9842090933841546
+2d. ham precision: 0.9601063829787234
+2e. ham recall: 0.9626666666666667
+2f. ham F1 score: 0.9613848202396804
+
+Part II.
+
+3. Performance of standard perceptron on the development data with 10% of the training data
+3a. spam precision: 0.9845571095571095
+3b. spam recall: 0.9194557823129251
+3c. spam F1 score: 0.9508934852961869
+3d. ham precision: 0.8301778542742398
+3e. ham recall: 0.9646666666666667
+3f. ham F1 score: 0.8923835954363244
+
+
+4. Performance of averaged perceptron on the development data with 10% of the training data
+4a. spam precision: 0.9772856331629756
+4b. spam recall: 0.9365986394557824
+4c. spam F1 score: 0.9565096568014451
+4d. ham precision: 0.8590441621294616
+4e. ham recall: 0.9466666666666667
+4f. ham F1 score: 0.9007294640025373
+
+Part III. You are welcome to reuse code you wrote for assignment 1,
+but we would like to know how you handled the following tasks.
+
+5. How did you calculate precision, recall and F1 score? If you used a
+separate script, please give the name of the script and describe how
+to run it.
+
+    Precision , Recall and F1 score was calculated using the per.accuracy list to keep track of
+    actual and predicted as described in the accuracy class object.
+    Please refer to the "per_classify1.py" for the additional code added as described below:
+    class -> accuracy(actual,predicted,score),
+    functions -> calAccuracy(list_accu), calculateF1(list_accu,class_type)
+    data structure -> per.accuracy_list to perModel class
+
+    Usage:-
+    python3 per_classify1.py "C:\CSCI 544\Spam or Ham\dev" "per_output.txt"
+    # there are 2 parameters same as per_classify.py
+
+6. How did you separate 10% of the training data? If you used a
+separate script, please give the name of the script and describe how
+to run it. Explain how you or your code choose the files.
+
+    Please refer to the per_learn2.py for the code for separating the 10% files. Firstly the program copies
+    all spam and ham files from train folder to the respective destination folders "/copy/spam" and "/copy/ham".
+    The number of files in the training was computed to estimate the 10% (rounded if fraction).
+    Then copied 10% of total number of files from "/copy/spam" and "/copy/ham" to "/copy_10/spam"
+    and "/copy_10/ham" respectively.
+
+    Usage :-
+    python3 per_learn2.py "C:\CSCI 544\Spam or Ham\train" "C:\CSCI 544\HW2\copy" "C:\CSCI 544\HW2\copy_10"
+    #There are3 parameters , first the train data , second the intermediate copy, third 10% directory copy path
+
+    The program just picks the files from the "/copy/*" folders (sorted by the filename) till it reaches
+    10% counter target for both the document classes spam and ham.

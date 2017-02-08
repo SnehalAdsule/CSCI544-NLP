@@ -1,0 +1,32 @@
+Assignment 3 Report
+
+Name:
+
+1. If you included files other than baseline_crf.py, advanced_crf.py, evaluate_model.py,
+ and hw3_corpus_tool.py, or modified hw3_corpus_tool.py please describe what the files do and/or your
+  modifications to hw3_corpus_tool.py.
+
+  I have used hw_corpus_tool.py and embedded it the baseline_crf.py and advance_crf.py.
+  I have used split_files.py to split the data into training and test dataset.
+  I have used sklearn.cross_validation.train_test_split for this purpose to split in 75:25 ratio.
+
+2. Describe how you evaluated your baseline and advanced features
+
+   I have used evaluate_model.py to check the number of correctly predicted labels from
+   the output file and the ground truth labels. The evaluation is done on the 25% of test dataset.
+
+3. Describe your advanced feature set.
+
+    I have tried bigram and trigram features in the advanced features , along with the baseline features
+    i.e. unigram and change of speaker features.
+
+
+4. If you tried alternate advanced feature sets, please describe them.
+
+   I tried the lowercase for the words, but it dint show any significant improvement.
+   Also tried a range of different coefficient for L1 and L2 penalty. I tried to increase the
+   number of iterations to for both baseline and advanced but it timed-out when I tried to increase it
+   beyond 50 and 75 respectively
+
+5. Accuracy of baseline features was:  71.8103222426%
+6. Accuracy of advanced features was:  73.0940529211%
